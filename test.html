@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标跟随效果测试</title>
+    <style>
+        /* 页面基础样式 */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* 链接样式 */
+        .link {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* 卡片样式 */
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>鼠标跟随效果测试页面</h1>
+    
+    <div class="card">
+        <h2>按钮测试区域</h2>
+        <button class="btn">点击按钮1</button>
+        <button class="btn">点击按钮2</button>
+        <button class="btn">点击按钮3</button>
+    </div>
+
+    <div class="card">
+        <h2>链接测试区域</h2>
+        <p>
+            这是一些测试链接：
+            <a href="#" class="link">链接1</a>
+            <a href="#" class="link">链接2</a>
+            <a href="#" class="link">链接3</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>混合内容区域</h2>
+        <p>这是一段普通文本，包含一个<a href="#" class="link">内联链接</a>和一个<button class="btn">内联按钮</button>。</p>
+        <p>移动鼠标到这些可点击元素上查看效果。</p>
+    </div>
+
+    <!-- 引入鼠标跟随插件 -->
+    <script type="module">
+        import Follower from './follower.js'
+
+        // 创建实例并配置
+        const follower = new Follower({
+            size: 30,                           // 默认圆环大小
+            borderColor: '#2196F3',             // 使用蓝色边框
+            borderWidth: 2,                     // 稍微粗一点的边框
+            hoverSize: 50,                      // hover 时放大到 50px
+            hoverColor: 'rgba(33, 150, 243, 0.3)', // 使用半透明的蓝色
+            speed: 0.15                         // 跟随速度
+        })
+
+        // 页面卸载时销毁实例
+        window.addEventListener('unload', () => {
+            follower.destroy()
+        })
+    </script>
+</body>
+</html>
