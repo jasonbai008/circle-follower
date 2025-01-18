@@ -1,6 +1,6 @@
 {
   "name": "circle-follower",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a simple mouse follower effect for your website.",
   "main": "index.js",
   "scripts": {
