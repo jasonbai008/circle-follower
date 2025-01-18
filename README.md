@@ -31,6 +31,19 @@ import Follower from "circle-follower";
 const follower = new Follower();
 ```
 
+### 方式三：使用赠送的平滑滚动插件
+
+```html
+<script src="https://unpkg.com/circle-follower@latest/scroll.js"></script>
+<script>
+  // 创建实例
+  const scroller = new SmoothScroll({
+    friction: 0.85, // 可选，摩擦力系数
+    sensitivity: 0.5, // 可选，滚动灵敏度
+  });
+</script>
+```
+
 ## 配置选项
 
 创建实例时可以传入配置对象，所有配置项都是可选的：
