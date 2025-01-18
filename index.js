@@ -53,8 +53,8 @@ class Follower {
     };
 
     // 初始化状态
-    this.mouseX = window.innerWidth / 2;
-    this.mouseY = window.innerHeight / 2;
+    this.mouseX = -100; // 初始时，确保圆环在屏幕外
+    this.mouseY = -100; // 初始时，确保圆环在屏幕外
     this.cursorX = this.mouseX;
     this.cursorY = this.mouseY;
     this.isHover = false;
