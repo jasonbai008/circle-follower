@@ -4,7 +4,10 @@
 
 <script>
 /**
- * 鼠标跟随组件使用示例：
+ * 鼠标跟随组件(Vue2)
+ * 
+ * Author: Jason Bai
+ * Github: https://github.com/jasonbai008/circle-follower
  *
  * 1. 引入组件
  * import Follower from 'circle-follower/Follower.vue'
@@ -30,13 +33,15 @@
  *   }
  * }
  *
- *
  * 4. 也可以不传options，使用默认配置
  * <Follower />
  */
 
+// 添加全局单例控制
+const GlobalFollowerSymbol = Symbol("follower-instance");
+
 export default {
-  name: "Follower",
+  name: "follower",
   props: {
     // 组件配置选项
     options: {
@@ -71,6 +76,16 @@ export default {
       // 动画帧ID
       animationFrameId: null,
     };
+  },
+
+  // 添加 beforeCreate 生命周期钩子进行单例检查
+  beforeCreate() {
+    if (window[GlobalFollowerSymbol]) {
+      console.warn("Follower 组件实例已存在，请勿重复创建");
+      this.$destroy();
+      return;
+    }
+    window[GlobalFollowerSymbol] = this;
   },
 
   computed: {
@@ -111,6 +126,7 @@ export default {
     this.startAnimation();
   },
 
+  // 修改 beforeDestroy 为 beforeUnmount（vue2中仍使用 beforeDestroy）
   beforeDestroy() {
     // 清理事件监听和动画
     document.removeEventListener("mousemove", this.handleMouseMove);
@@ -118,6 +134,11 @@ export default {
     document.removeEventListener("mouseenter", this.handleMouseEnter);
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
+    }
+
+    // 清除单例引用
+    if (window[GlobalFollowerSymbol] === this) {
+      window[GlobalFollowerSymbol] = null;
     }
   },
 
@@ -158,10 +179,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* 给支持hover效果的元素添加鼠标手型 */
-:deep(button),
-:deep(a) {
-  cursor: pointer;
-}
-</style>
+<style scoped></style>

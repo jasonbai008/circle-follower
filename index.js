@@ -1,16 +1,17 @@
 /**
  * 鼠标跟随插件
  * 
+ * Author: Jason Bai
+ * Github: https://github.com/jasonbai008/circle-follower
+ * 
  * 使用示例：
  * 1. 引入插件：普通引入或模块儿化引入，二选一
  * 
  * // 普通引入
- * <script src="https://unpkg.com/circle-follower@1.0.0/index.js"></script>
+ * <script src="https://unpkg.com/circle-follower@latest/index.js"></script>
  * 
  * // 模块化引入 
  * import Follower from 'circle-follower'
- * // 或
- * import { Follower } from 'circle-follower'
  *
  * 2. 实例化并配置
  * const follower = new Follower({
@@ -27,7 +28,19 @@
  */
 
 class Follower {
+  // 添加静态实例属性
+  static instance = null;
+
   constructor(options = {}) {
+    // 实现单例模式
+    if (Follower.instance) {
+      console.warn('Follower 实例已存在，请勿重复创建');
+      return Follower.instance;
+    }
+
+    // 保存唯一实例
+    Follower.instance = this;
+
     // 默认配置
     this.options = {
       size: 30,
@@ -142,6 +155,9 @@ class Follower {
     if (this.cursor && this.cursor.parentNode) {
       this.cursor.parentNode.removeChild(this.cursor);
     }
+
+    // 清除单例引用
+    Follower.instance = null;
   }
 }
 
