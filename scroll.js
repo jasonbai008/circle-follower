@@ -3,15 +3,15 @@
  * 
  * 使用方法:
  * new SmoothScroll({
- *   friction: 0.85,      // 可选，摩擦力系数
+ *   friction: 0.85,      // 可选，速度衰减系数
  *   sensitivity: 0.5     // 可选，滚动灵敏度
  * });
  * 
  * 配置参数说明:
  * @param {Object} options 配置项
- * @param {number} [options.friction=0.85] - 摩擦力系数
- *   - 控制滚动停止的速度
- *   - 值越大停止越快，建议范围：0.8-0.95
+ * @param {number} [options.friction=0.85] - 速度衰减系数
+ *   - 控制滚动的惯性
+ *   - 值越小衰减越快（惯性小），建议范围：0.8-0.95
  *   - 默认值0.85适合大多数情况
  * 
  * @param {number} [options.sensitivity=0.5] - 滚动灵敏度
@@ -43,7 +43,7 @@ class SmoothScroll {
     this.velocity = 0;
     
     // 合并默认配置和用户配置
-    this.friction = options.friction || 0.85;        // 摩擦力系数
+    this.friction = options.friction || 0.85;        // 速度衰减系数
     this.sensitivity = options.sensitivity || 0.5;    // 滚动灵敏度
     this.isScrolling = false;
 

@@ -23,11 +23,13 @@
  *     return {
  *       followerOptions: {
  *         size: 30,                           // 圆环默认大小
- *         borderColor: '#999',                // 边框颜色
- *         borderWidth: 1,                     // 边框宽度
- *         hoverSize: 50,                      // hover时圆环大小
+ *         borderColor: '#00c569',                // 边框颜色
+ *         borderWidth: 2,                     // 边框宽度
+ *         hoverSize: 60,                      // hover时圆环大小
  *         hoverColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
  *         speed: 0.15                         // 跟随速度(0-1之间)
+ *         backdropFilter: '',                 // 背景滤镜效果
+ *         hoverBackdropFilter: ''             // hover时的背景滤镜效果
  *       }
  *     }
  *   }
@@ -50,15 +52,17 @@ export default {
         // 圆圈默认半径（单位：px）
         size: 30,
         // 边框颜色
-        borderColor: "#999",
+        borderColor: "#00c569",
         // 边框宽度
-        borderWidth: 1,
+        borderWidth: 2,
         // hover 时的大小
-        hoverSize: 50,
+        hoverSize: 60,
         // hover 时的背景色
         hoverColor: "rgba(0, 255, 0, 0.3)",
         // 跟随动画的速度（0-1之间，越小越慢）
         speed: 0.15,
+        backdropFilter: '',
+        hoverBackdropFilter: '',
       }),
     },
   },
@@ -106,14 +110,15 @@ export default {
         transform: `translate3d(${this.cursorX}px, ${this.cursorY}px, 0) translate(-50%, -50%)`,
         willChange: "transform",
         backgroundColor: this.isHover ? this.options.hoverColor : "transparent",
+        backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
       };
     },
   },
 
   mounted() {
     // 初始化鼠标位置为视窗中心
-    this.mouseX = window.innerWidth / 2;
-    this.mouseY = window.innerHeight / 2;
+    this.mouseX = -100;
+    this.mouseY = -100;
     this.cursorX = this.mouseX;
     this.cursorY = this.mouseY;
 

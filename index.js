@@ -16,11 +16,13 @@
  * 2. 实例化并配置
  * const follower = new Follower({
  *   size: 30,                           // 圆环默认大小
- *   borderColor: '#999',                // 边框颜色
- *   borderWidth: 1,                     // 边框宽度
- *   hoverSize: 50,                      // hover时圆环大小
+ *   borderColor: '#00c569',                // 边框颜色
+ *   borderWidth: 2,                     // 边框宽度
+ *   hoverSize: 60,                      // hover时圆环大小
  *   hoverColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
- *   speed: 0.15                         // 跟随速度(0-1之间)
+ *   speed: 0.15,                        // 跟随速度(0-1之间)
+ *   backdropFilter: '',                  // 背景滤镜效果
+ *   hoverBackdropFilter: ''             // hover时的背景滤镜效果
  * })
  *
  * 3. 销毁实例
@@ -44,11 +46,13 @@ class Follower {
     // 默认配置
     this.options = {
       size: 30,
-      borderColor: "#999",
-      borderWidth: 1,
-      hoverSize: 50,
+      borderColor: "#00c569",
+      borderWidth: 2,
+      hoverSize: 60,
       hoverColor: "rgba(0, 255, 0, 0.3)",
       speed: 0.15,
+      backdropFilter: '',
+      hoverBackdropFilter: '',
       ...options,
     };
 
@@ -83,6 +87,7 @@ class Follower {
       willChange: "transform",
       transition: "width 0.15s ease-out, height 0.15s ease-out, background-color 0.15s ease-out, border 0.15s ease-out",
       borderRadius: "50%",
+      backdropFilter: "blur(5px)",
     });
     this.updateCursorStyle();
     document.body.appendChild(this.cursor);
@@ -96,6 +101,7 @@ class Follower {
       height: `${size}px`,
       border: this.isHover ? "none" : `${this.options.borderWidth}px solid ${this.options.borderColor}`,
       backgroundColor: this.isHover ? this.options.hoverColor : "transparent",
+      backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
     });
   }
 
