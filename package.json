@@ -1,0 +1,24 @@
+{
+  "name": "circle-follower",
+  "version": "1.0.0",
+  "description": "a simple mouse follower effect for your website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonbai008/circle-follower.git"
+  },
+  "keywords": [
+    "cursor",
+    "follower",
+    "effect"
+  ],
+  "author": "JasonBai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonbai008/circle-follower/issues"
+  },
+  "homepage": "https://github.com/jasonbai008/circle-follower#readme"
+}
