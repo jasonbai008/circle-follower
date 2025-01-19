@@ -1,7 +1,7 @@
 /**
  * 平滑滚动插件 (Smooth Scroll Plugin)
  * 
- * Author: Jason Bai
+ * Author: Jason Bai & Claude-3.5-sonnet
  * Github: https://github.com/jasonbai008/circle-follower
  * 
  * 使用方法:

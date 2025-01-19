@@ -1,7 +1,7 @@
 /**
  * 鼠标跟随插件
  *
- * Author: Jason Bai
+ * Author: Jason Bai & Claude-3.5-sonnet
  * Github: https://github.com/jasonbai008/circle-follower
  *
  * 使用示例：

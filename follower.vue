@@ -6,7 +6,7 @@
 /**
  * 鼠标跟随组件(Vue2)
  *
- * Author: Jason Bai
+ * Author: Jason Bai & Claude-3.5-sonnet
  * Github: https://github.com/jasonbai008/circle-follower
  *
  * 1. 引入组件
