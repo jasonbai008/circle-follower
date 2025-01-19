@@ -5,7 +5,7 @@
 <script>
 /**
  * 鼠标跟随组件(Vue2)
- * 
+ *
  * Author: Jason Bai
  * Github: https://github.com/jasonbai008/circle-follower
  *
@@ -23,6 +23,7 @@
  *     return {
  *       followerOptions: {
  *         size: 30,                           // 圆环默认大小
+ *         bgColor: 'transparent',             // 背景色
  *         borderColor: '#00c569',             // 边框颜色
  *         borderWidth: 2,                     // 边框宽度
  *         backdropFilter: '',                 // 背景滤镜效果
@@ -51,6 +52,8 @@ export default {
       default: () => ({
         // 圆圈默认半径（单位：px）
         size: 30,
+        // 默认透明背景色
+        bgColor: 'transparent',
         // 边框颜色
         borderColor: "#00c569",
         // 边框宽度
@@ -61,8 +64,8 @@ export default {
         hoverBgColor: "rgba(0, 255, 0, 0.3)",
         // 跟随动画的速度（0-1之间，越小越慢）
         speed: 0.15,
-        backdropFilter: '',
-        hoverBackdropFilter: '',
+        backdropFilter: "",
+        hoverBackdropFilter: "",
       }),
     },
   },
@@ -109,7 +112,7 @@ export default {
         // 使用 transform 定位并保持居中
         transform: `translate3d(${this.cursorX}px, ${this.cursorY}px, 0) translate(-50%, -50%)`,
         willChange: "transform",
-        backgroundColor: this.isHover ? this.options.hoverBgColor : "transparent",
+        backgroundColor: this.isHover ? this.options.hoverBgColor : this.options.bgColor,
         backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
       };
     },

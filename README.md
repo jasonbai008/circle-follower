@@ -41,6 +41,7 @@ const follower = new Follower();
 const follower = new Follower({
   // 以下是默认值
   size: 30, // 圆环默认大小
+  bgColor: "transparent", // 背景色
   borderColor: "#00c569", // 边框颜色
   borderWidth: 2, // 边框宽度
   backdropFilter: "", // 背景滤镜效果，例如：'blur(5px)'
@@ -56,6 +57,7 @@ const follower = new Follower({
 | 参数                | 说明                             | 类型   | 默认值                 |
 | ------------------- | -------------------------------- | ------ | ---------------------- |
 | size                | 圆环默认大小（像素）             | Number | 30                     |
+| bgColor             | 背景色                           | String | 'transparent'          |
 | borderColor         | 边框颜色                         | String | '#00c569'              |
 | borderWidth         | 边框宽度（像素）                 | Number | 2                      |
 | backdropFilter      | 背景滤镜效果                     | String | ''                     |

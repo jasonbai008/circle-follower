@@ -16,6 +16,7 @@
  * 2. 实例化并配置
  * const follower = new Follower({
  *   size: 30,                             // 圆环默认大小
+ *   bgColor: 'transparent',               // 背景色
  *   borderColor: '#00c569',               // 边框颜色
  *   borderWidth: 2,                       // 边框宽度
  *   backdropFilter: '',                   // 背景滤镜效果
@@ -46,6 +47,7 @@ class Follower {
     // 默认配置
     this.options = {
       size: 30,
+      bgColor: 'transparent',
       borderColor: "#00c569",
       borderWidth: 2,
       hoverSize: 60,
@@ -100,7 +102,7 @@ class Follower {
       width: `${size}px`,
       height: `${size}px`,
       border: this.isHover ? "none" : `${this.options.borderWidth}px solid ${this.options.borderColor}`,
-      backgroundColor: this.isHover ? this.options.hoverBgColor : "transparent",
+      backgroundColor: this.isHover ? this.options.hoverBgColor : this.options.bgColor,
       backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
     });
   }
