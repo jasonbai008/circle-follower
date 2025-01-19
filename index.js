@@ -1,28 +1,28 @@
 /**
  * 鼠标跟随插件
- * 
+ *
  * Author: Jason Bai
  * Github: https://github.com/jasonbai008/circle-follower
- * 
+ *
  * 使用示例：
  * 1. 引入插件：普通引入或模块儿化引入，二选一
- * 
+ *
  * // 普通引入
  * <script src="https://unpkg.com/circle-follower@latest/index.js"></script>
- * 
- * // 模块化引入 
+ *
+ * // 模块化引入
  * import Follower from 'circle-follower'
  *
  * 2. 实例化并配置
  * const follower = new Follower({
- *   size: 30,                           // 圆环默认大小
- *   borderColor: '#00c569',                // 边框颜色
- *   borderWidth: 2,                     // 边框宽度
- *   hoverSize: 60,                      // hover时圆环大小
- *   hoverColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
- *   speed: 0.15,                        // 跟随速度(0-1之间)
- *   backdropFilter: '',                  // 背景滤镜效果
- *   hoverBackdropFilter: ''             // hover时的背景滤镜效果
+ *   size: 30,                             // 圆环默认大小
+ *   borderColor: '#00c569',               // 边框颜色
+ *   borderWidth: 2,                       // 边框宽度
+ *   backdropFilter: '',                   // 背景滤镜效果
+ *   hoverSize: 60,                        // hover时圆环大小
+ *   hoverBgColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
+ *   hoverBackdropFilter: ''               // hover时的背景滤镜效果
+ *   speed: 0.15,                          // 跟随速度(0-1之间)
  * })
  *
  * 3. 销毁实例
@@ -36,7 +36,7 @@ class Follower {
   constructor(options = {}) {
     // 实现单例模式
     if (Follower.instance) {
-      console.warn('Follower 实例已存在，请勿重复创建');
+      console.warn("Follower 实例已存在，请勿重复创建");
       return Follower.instance;
     }
 
@@ -49,10 +49,10 @@ class Follower {
       borderColor: "#00c569",
       borderWidth: 2,
       hoverSize: 60,
-      hoverColor: "rgba(0, 255, 0, 0.3)",
+      hoverBgColor: "rgba(0, 255, 0, 0.3)",
       speed: 0.15,
-      backdropFilter: '',
-      hoverBackdropFilter: '',
+      backdropFilter: "",
+      hoverBackdropFilter: "",
       ...options,
     };
 
@@ -100,7 +100,7 @@ class Follower {
       width: `${size}px`,
       height: `${size}px`,
       border: this.isHover ? "none" : `${this.options.borderWidth}px solid ${this.options.borderColor}`,
-      backgroundColor: this.isHover ? this.options.hoverColor : "transparent",
+      backgroundColor: this.isHover ? this.options.hoverBgColor : "transparent",
       backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
     });
   }
@@ -171,6 +171,6 @@ class Follower {
 window.Follower = Follower;
 
 // 如果是在模块化环境下使用
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = Follower;
 }

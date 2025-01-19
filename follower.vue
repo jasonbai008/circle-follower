@@ -23,13 +23,13 @@
  *     return {
  *       followerOptions: {
  *         size: 30,                           // 圆环默认大小
- *         borderColor: '#00c569',                // 边框颜色
+ *         borderColor: '#00c569',             // 边框颜色
  *         borderWidth: 2,                     // 边框宽度
- *         hoverSize: 60,                      // hover时圆环大小
- *         hoverColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
- *         speed: 0.15                         // 跟随速度(0-1之间)
  *         backdropFilter: '',                 // 背景滤镜效果
+ *         hoverSize: 60,                      // hover时圆环大小
+ *         hoverBgColor: 'rgba(0, 255, 0, 0.3)', // hover时背景色
  *         hoverBackdropFilter: ''             // hover时的背景滤镜效果
+ *         speed: 0.15                         // 跟随速度(0-1之间)
  *       }
  *     }
  *   }
@@ -58,7 +58,7 @@ export default {
         // hover 时的大小
         hoverSize: 60,
         // hover 时的背景色
-        hoverColor: "rgba(0, 255, 0, 0.3)",
+        hoverBgColor: "rgba(0, 255, 0, 0.3)",
         // 跟随动画的速度（0-1之间，越小越慢）
         speed: 0.15,
         backdropFilter: '',
@@ -109,7 +109,7 @@ export default {
         // 使用 transform 定位并保持居中
         transform: `translate3d(${this.cursorX}px, ${this.cursorY}px, 0) translate(-50%, -50%)`,
         willChange: "transform",
-        backgroundColor: this.isHover ? this.options.hoverColor : "transparent",
+        backgroundColor: this.isHover ? this.options.hoverBgColor : "transparent",
         backdropFilter: this.isHover ? this.options.hoverBackdropFilter : this.options.backdropFilter,
       };
     },

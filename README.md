@@ -1,10 +1,12 @@
 # Circle Follower
 
-一个简单优雅的鼠标跟随效果插件。
+一个简单优雅的鼠标跟随效果插件。【附赠平滑滚动插件】
 
-## 使用方式
+## 鼠标跟随插件
 
-### 方式一：通过 script 标签直接引入
+### 使用方式
+
+#### 方式一：通过 script 标签直接引入
 
 ```html
 <script src="https://unpkg.com/circle-follower@latest/index.js"></script>
@@ -18,7 +20,7 @@
 </script>
 ```
 
-### 方式二：在模块化项目中使用
+#### 方式二：在模块化项目中使用
 
 ```bash
 npm install circle-follower
@@ -31,13 +33,7 @@ import Follower from "circle-follower";
 const follower = new Follower();
 ```
 
-### 方式三：使用赠送的平滑滚动插件
-
-```html
-<script src="https://unpkg.com/circle-follower@latest/smoothScroller.js"></script>
-```
-
-## 配置选项
+### 配置选项
 
 创建实例时可以传入配置对象，所有配置项都是可选的：
 
@@ -47,30 +43,30 @@ const follower = new Follower({
   size: 30, // 圆环默认大小
   borderColor: "#00c569", // 边框颜色
   borderWidth: 2, // 边框宽度
+  backdropFilter: "", // 背景滤镜效果，例如：'blur(5px)'
   hoverSize: 60, // hover时圆环大小
-  hoverColor: "rgba(0, 255, 0, 0.3)", // hover时背景色
+  hoverBgColor: "rgba(0, 255, 0, 0.3)", // hover时背景色
+  hoverBackdropFilter: "", // hover时的背景滤镜效果
   speed: 0.15, // 跟随速度(0-1之间)
-  backdropFilter: '', // 背景滤镜效果，例如：'blur(5px)'
-  hoverBackdropFilter: '', // hover时的背景滤镜效果
 });
 ```
 
 ### 配置项说明
 
-| 参数               | 说明                             | 类型   | 默认值                 |
-| ----------------- | -------------------------------- | ------ | ---------------------- |
-| size              | 圆环默认大小（像素）             | Number | 30                     |
-| borderColor       | 边框颜色                         | String | '#00c569'                 |
-| borderWidth       | 边框宽度（像素）                 | Number | 2                      |
-| hoverSize         | 鼠标悬停时圆环大小（像素）       | Number | 60                     |
-| hoverColor        | 鼠标悬停时背景色                 | String | 'rgba(0, 255, 0, 0.3)' |
-| speed             | 跟随速度，范围 0-1，越大跟随越快 | Number | 0.15                   |
-| backdropFilter    | 背景滤镜效果                     | String | ''                     |
-| hoverBackdropFilter| hover时的背景滤镜效果           | String | ''                     |
+| 参数                | 说明                             | 类型   | 默认值                 |
+| ------------------- | -------------------------------- | ------ | ---------------------- |
+| size                | 圆环默认大小（像素）             | Number | 30                     |
+| borderColor         | 边框颜色                         | String | '#00c569'              |
+| borderWidth         | 边框宽度（像素）                 | Number | 2                      |
+| backdropFilter      | 背景滤镜效果                     | String | ''                     |
+| hoverSize           | 鼠标悬停时圆环大小（像素）       | Number | 60                     |
+| hoverBgColor        | 鼠标悬停时背景色                 | String | 'rgba(0, 255, 0, 0.3)' |
+| hoverBackdropFilter | hover 时的背景滤镜效果           | String | ''                     |
+| speed               | 跟随速度，范围 0-1，越大跟随越快 | Number | 0.15                   |
 
-## 实例方法
+### 实例方法
 
-### destroy()
+#### destroy()
 
 销毁实例，移除事件监听和 DOM 元素：
 
@@ -80,13 +76,17 @@ const follower = new Follower();
 follower.destroy(); // 销毁实例
 ```
 
-## 设计模式
+## 平滑滚动插件【赠品】
 
-- 单例模式
+### 使用方式
 
-## 平滑移动算法
+```html
+<script src="https://unpkg.com/circle-follower@latest/smoothScroller.js"></script>
+```
 
-- 差值算法
+### Demo
+
+- [demo](https://jasonbai008.github.io/circle-follower/test.html)
 
 ## License
 

@@ -1,7 +1,13 @@
 /**
  * 平滑滚动插件 (Smooth Scroll Plugin)
  * 
+ * Author: Jason Bai
+ * Github: https://github.com/jasonbai008/circle-follower
+ * 
  * 使用方法:
+ * <script src="https://unpkg.com/circle-follower@latest/smoothScroller.js"></script>
+ * 
+ * 插件内部默认配置参数：
  * new SmoothScroller({
  *   friction: 0.9,     // 可选，速度衰减系数
  *   sensitivity: 0.12   // 可选，滚动灵敏度
@@ -24,15 +30,6 @@
  * 2. 需要现代浏览器支持
  * 3. 建议在页面加载完成后初始化
  * 
- * 示例:
- * // 使用默认配置
- * new SmoothScroller();
- * 
- * // 自定义配置
- * new SmoothScroller({
- *   friction: 0.9,     // 更快停止
- *   sensitivity: 0.12   // 更温和的滚动
- * });
  */
 
 /**
