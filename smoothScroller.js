@@ -3,18 +3,18 @@
  * 
  * 使用方法:
  * new SmoothScroller({
- *   friction: 0.92,     // 可选，速度衰减系数
- *   sensitivity: 0.18   // 可选，滚动灵敏度
+ *   friction: 0.9,     // 可选，速度衰减系数
+ *   sensitivity: 0.12   // 可选，滚动灵敏度
  * });
  * 
  * 配置参数说明:
  * @param {Object} options 配置项
- * @param {number} [options.friction=0.92] - 速度衰减系数
+ * @param {number} [options.friction=0.9] - 速度衰减系数
  *   - 控制滚动的惯性
  *   - 值越小衰减越快（惯性小），建议范围：0.85-0.95
  *   - 默认值0.92适合大多数情况
  * 
- * @param {number} [options.sensitivity=0.18] - 滚动灵敏度
+ * @param {number} [options.sensitivity=0.12] - 滚动灵敏度
  *   - 控制滚动的响应程度
  *   - 值越大滚动越快，建议范围：0.1-0.5
  *   - 默认值0.18适合日常使用
@@ -31,7 +31,7 @@
  * // 自定义配置
  * new SmoothScroller({
  *   friction: 0.9,     // 更快停止
- *   sensitivity: 0.2   // 更温和的滚动
+ *   sensitivity: 0.12   // 更温和的滚动
  * });
  */
 
@@ -47,8 +47,8 @@ class SmoothScroller {
     this.velocity = 0;
     
     // 合并默认配置和用户配置
-    this.friction = options.friction || 0.92;        
-    this.sensitivity = options.sensitivity || 0.18;   
+    this.friction = options.friction || 0.9;        
+    this.sensitivity = options.sensitivity || 0.12;   
     
     // 节流相关变量
     this.lastWheelTime = 0;
