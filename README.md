@@ -34,14 +34,7 @@ const follower = new Follower();
 ### 方式三：使用赠送的平滑滚动插件
 
 ```html
-<script src="https://unpkg.com/circle-follower@latest/scroll.js"></script>
-<script>
-  // 创建实例
-  const scroller = new SmoothScroll({
-    friction: 0.85, // 可选，速度衰减系数
-    sensitivity: 0.5, // 可选，滚动灵敏度
-  });
-</script>
+<script src="https://unpkg.com/circle-follower@latest/smoothScroller.js"></script>
 ```
 
 ## 配置选项
