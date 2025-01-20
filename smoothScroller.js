@@ -73,6 +73,33 @@ class SmoothScroller {
   bindEvents() {
     // 使用节流处理wheel事件
     window.addEventListener('wheel', (e) => {
+      // 检查滚动事件是否来自内部可滚动元素
+      const targetElement = e.target;
+      
+      // 向上查找最近的可滚动容器
+      let scrollableParent = targetElement;
+      while (scrollableParent && scrollableParent !== document.documentElement) {
+        const { overflowY } = window.getComputedStyle(scrollableParent);
+        const canScroll = scrollableParent.scrollHeight > scrollableParent.clientHeight;
+        
+        // 如果元素可以滚动，并且未到达滚动边界，则让其自然滚动
+        if (canScroll && ['auto', 'scroll'].includes(overflowY)) {
+          const isAtTop = scrollableParent.scrollTop <= 0;
+          const isAtBottom = scrollableParent.scrollTop + scrollableParent.clientHeight >= scrollableParent.scrollHeight;
+          
+          // 如果在中间位置滚动，或者
+          // 在顶部向下滚动，或者
+          // 在底部向上滚动
+          if ((!isAtTop && !isAtBottom) || 
+              (isAtTop && e.deltaY > 0) || 
+              (isAtBottom && e.deltaY < 0)) {
+            e.stopPropagation(); // 阻止事件冒泡
+            return; // 允许默认滚动行为
+          }
+        }
+        scrollableParent = scrollableParent.parentElement;
+      }
+      
       e.preventDefault();
       
       const now = performance.now();
