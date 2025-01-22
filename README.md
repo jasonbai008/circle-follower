@@ -84,6 +84,13 @@ follower.destroy(); // 销毁实例
 
 ```html
 <script src="https://unpkg.com/circle-follower@latest/smoothScroller.js"></script>
+<script>
+  // 实例化平滑滚动插件
+  new SmoothScroller({
+    friction: 0.9,
+    sensitivity: 0.12,
+  });
+</script>
 ```
 
 ### Demo

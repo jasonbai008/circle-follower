@@ -18,12 +18,12 @@
  * @param {number} [options.friction=0.9] - 速度衰减系数
  *   - 控制滚动的惯性
  *   - 值越小衰减越快（惯性小），建议范围：0.85-0.95
- *   - 默认值0.92适合大多数情况
+ *   - 默认值0.9适合大多数情况
  * 
  * @param {number} [options.sensitivity=0.12] - 滚动灵敏度
  *   - 控制滚动的响应程度
  *   - 值越大滚动越快，建议范围：0.1-0.5
- *   - 默认值0.18适合日常使用
+ *   - 默认值0.12适合日常使用
  * 
  * 注意事项:
  * 1. 该插件会阻止默认的滚动行为
@@ -190,7 +190,7 @@ class SmoothScroller {
   }
 }
 
-// 等待DOM加载完成后初始化
-window.addEventListener('DOMContentLoaded', () => {
-  new SmoothScroller();
-});
+// 等待DOM加载完成后初始化，这里注释，需要用户手动实例化
+// window.addEventListener('DOMContentLoaded', () => {
+//   new SmoothScroller();
+// });
