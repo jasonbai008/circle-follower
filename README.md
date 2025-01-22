@@ -87,8 +87,8 @@ follower.destroy(); // 销毁实例
 <script>
   // 实例化平滑滚动插件
   new SmoothScroller({
-    friction: 0.9,
-    sensitivity: 0.12,
+    friction: 0.9, // 可选，速度衰减系数，值越小衰减越快（惯性小），建议范围：0.85-0.95
+    sensitivity: 0.12, // 可选，滚动灵敏度，值越小滚动越慢，建议范围：0.08-0.15
   });
 </script>
 ```
